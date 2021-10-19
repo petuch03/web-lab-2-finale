@@ -1,7 +1,9 @@
 package servlets;
-import entity.*;
+
+import entity.Hit;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,10 +15,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.*;
+import java.util.stream.Stream;
 
 import static java.lang.Math.pow;
 
+@WebServlet(urlPatterns = "/AreaCheckServlet")
 public class AreaCheckServlet extends HttpServlet {
 
 

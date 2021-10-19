@@ -43,7 +43,7 @@ canvas.addEventListener('click', function (event) {
         if (yFromCanvas <= -3) yFromCanvas = -3;
         else if (yFromCanvas >= 3) yFromCanvas = 3;
 
-        $.get("/ControllerServlet", {
+        $.get("ControllerServlet", {
             'x': xFromCanvas,
             'y': yFromCanvas,
             'r': R_canvas,

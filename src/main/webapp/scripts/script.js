@@ -63,7 +63,7 @@ function cal() {
         alert(ALERT);
         ALERT = '';
     } else {
-        $.get('/ControllerServlet', {
+        $.get('ControllerServlet', {
             'x': X,
             'y': Y,
             'r': R_form,
@@ -90,7 +90,7 @@ function cal() {
 }
 
 function clear_table() {
-    $.get('/ClearSessionServlet')
+    $.get('ClearSessionServlet')
         .fail(function (err) {
             alert(err);
         });
