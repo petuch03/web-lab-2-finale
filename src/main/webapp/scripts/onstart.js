@@ -4,7 +4,7 @@ let tableInfo = Array.prototype.map.call(document.querySelectorAll('#tableWithRe
     });
 });
 
-for (let i = 1; i < tableInfo.length - 1; i++) {
+for (let i = 1; i < tableInfo.length; i++) {
     console.log(tableInfo[i][0] + " --- " + tableInfo[i][1] + " --- " + tableInfo[i][2] + " --- " + tableInfo[i][3]);
     drawPoint(tableInfo[i][0], tableInfo[i][1], tableInfo[i][2], ((tableInfo[i][3] === 'yes') ? "#22be00" : "#ff0000"));
 }
