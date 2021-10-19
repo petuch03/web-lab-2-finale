@@ -1,0 +1,226 @@
+body { /* все что внутри боди -- наследует стиль боди */
+    color: antiquewhite;
+    font-family: Optima, serif;
+    font-size: 22px;
+    min-width: 50%;
+    width: auto;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-repeat: repeat-y;
+    padding: 0;
+    margin: 0 10px 0 0;
+}
+
+p {
+    margin: 0 0;
+}
+
+header {
+    font-family: Optima, serif;
+    font-weight: bold;
+    color: #6feeca;
+    line-height: 125%;
+    font-size: 45px;
+    text-align: center;
+    min-width: 300px;
+}
+
+.box {
+    border-radius: 10px;
+    border: 5px solid #6feeca;
+    background-color: rgba(5, 5, 5, 0.3);
+    text-align: center;
+    margin: 11px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-gap: 11px;
+}
+
+/* каскадирование */
+
+.wrapper > div { /* дочерние селекторы */
+    padding: 22px;
+}
+
+#header {
+    grid-column: 1/3;
+}
+
+#checkForm {
+    padding: 0;
+    grid-column: 1/2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 22px;
+}
+
+.xLocator {
+    grid-column: 1;
+    min-height: 120px;
+    min-width: 100px;
+}
+
+.yLocator { /* селектор класса */
+    grid-column: 2;
+    min-width: 100px;
+}
+
+.rLocator {
+    grid-column: 3;
+    min-width: 100px;
+}
+
+.sLocator {
+    grid-column: 1/4;
+}
+
+.cLocator {
+    grid-column: 1/4;
+}
+
+#area_x > p {
+    text-align: center;
+    margin-left: 22px;
+    margin-right: 22px;
+}
+
+#area_x > p:last-child {
+    margin-bottom: 11px;
+}
+
+#area_r > p {
+    text-align: left;
+    margin-left: 22px;
+}
+
+#area_r > p:last-child {
+    margin-bottom: 11px;
+}
+
+#yValue { /* селектор идентификатора */
+    font-family: Optima, serif;
+    font-size: 19px;
+    text-align: center;
+    height: 25px;
+    width: 70%;
+    background: transparent;
+    border: 5px solid #6feeca;
+    margin: 22px 0 22px 0;
+    border-radius: 10px;
+    color: antiquewhite;
+}
+
+#yValue::placeholder {
+    text-align: center;
+    color: rgba(250, 235, 215, 0.6);
+}
+
+#area_submit {
+    margin: 11px;
+}
+
+#area_clear {
+    margin: 11px;
+}
+
+#formSubmit, #clear {
+    font-family: Optima, serif;
+    font-size: 22px;
+    width: 100%;
+    height: 70px;
+    background: rgba(5, 5, 5, 0.3);
+    border-radius: 10px;
+    border: 5px solid #6feeca;
+    color: #6feeca;
+    display: inline-block;
+    transition: .3s;
+}
+
+#formSubmit:hover, #clear:hover {
+    background: #6feeca;
+    box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+    color: black;
+    transform: translateY(-7px);
+}
+
+#area_diagram {
+    display: inline-block;
+    grid-column: 2;
+    padding: 0;
+    margin: 11px;
+}
+
+.diagram {
+    min-width: 374px;
+    min-height: 374px;
+    border: 5px solid #6feeca;
+    border-radius: 10px;
+}
+
+#myCanvas {
+    background-color: white;
+    width: 374px;
+    height: 374px;
+}
+
+#tLocator {
+    padding: 0;
+    margin: 11px;
+    height: 180px;
+    overflow: visible;
+}
+
+table {
+    width: 100%;
+    background: rgba(5, 5, 5, 0.3);
+    border: 5px solid #6feeca;
+    border-radius: 10px;
+    text-align: center;
+}
+
+th {
+    color: antiquewhite;
+    border-bottom: 5px solid #6feeca;
+    padding: 10px 8px;
+}
+
+td {
+    color: antiquewhite;
+    font-weight: normal;
+    padding: 9px 8px;
+    transition: .3s linear;
+}
+
+.xValue {
+    font-family: Optima, serif;
+    font-size: 22px;
+    background: transparent;
+    border-radius: 10px;
+    border: 5px solid #6feeca;
+    color: #6feeca;
+    display: inline-block;
+    transition: .3s;
+    width: 50px;
+}
+
+.first-line, .last-line {
+    width: 15%;
+}
+
+.second-line {
+    width: 30%;
+}
+
+.xValue:hover {
+    background: #6feeca;
+    box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+    color: black;
+    transform: translateY(-2px);
+}
+
+.center {
+    text-align: center;
+}
