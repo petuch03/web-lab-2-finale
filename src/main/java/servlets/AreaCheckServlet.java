@@ -57,11 +57,11 @@ public class AreaCheckServlet extends HttpServlet {
         String res = isHit ? "yes" : "no";
 
         String jsonInstance = "{";
-        jsonInstance += "\"x\":" + decimalFormat.format(x) + ',' +
-                "\"y\":" + decimalFormat.format(y) + ',' +
-                "\"r\":" + decimalFormat.format(r) + ',' +
+        jsonInstance += "\"x\":" + "\"" + decimalFormat.format(x).replace(',', '.') + "\"" + ',' +
+                "\"y\":" + "\"" + decimalFormat.format(y).replace(',', '.') + "\"" + ',' +
+                "\"r\":" + "\"" + decimalFormat.format(r).replace(',', '.') + "\"" + ',' +
                 "\"res\":"  + "\"" + res + "\""  + ',' +
-                "\"duration\":" + decimalFormat.format(duration) + ',' +
+                "\"duration\":" + "\"" + decimalFormat.format(duration).replace(',', '.') + "\"" + ',' +
                 "\"current\":" + "\"" + current + "\"" + "}";
 
         return jsonInstance;

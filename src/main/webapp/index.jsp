@@ -110,11 +110,11 @@
                         String res = hit.isCheckHit() ? "yes" : "no";
 
                         String htmlInstance = "<tr>";
-                        htmlInstance += "<td>" + decimalFormat.format(hit.getX()) + "</td>";
-                        htmlInstance += "<td>" + decimalFormat.format(hit.getY()) + "</td>";
-                        htmlInstance += "<td>" + decimalFormat.format(hit.getR()) + "</td>";
+                        htmlInstance += "<td>" + decimalFormat.format(hit.getX()).replace(',', '.') + "</td>";
+                        htmlInstance += "<td>" + decimalFormat.format(hit.getY()).replace(',', '.') + "</td>";
+                        htmlInstance += "<td>" + decimalFormat.format(hit.getR()).replace(',', '.') + "</td>";
                         htmlInstance += "<td>" + res + "</td>";
-                        htmlInstance += "<td>" + decimalFormat.format(hit.getDuration()) + "</td>";
+                        htmlInstance += "<td>" + decimalFormat.format(hit.getDuration()).replace(',', '.') + "</td>";
                         htmlInstance += "<td>" + hit.getCurrent() + "</td>";
                         htmlInstance += "</tr>";
 

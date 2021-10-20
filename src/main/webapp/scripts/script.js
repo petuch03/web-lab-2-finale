@@ -68,6 +68,7 @@ function cal() {
             'y': Y,
             'r': R_form,
         }).done(function (data) {
+            console.log(data);
             let arr = JSON.parse(data);
             if (arr.res === "yes") {
                 drawPoint(arr.x, arr.y, arr.r, "#22be00");
