@@ -1,53 +1,63 @@
 const canvas = document.getElementById('myCanvas');
-let R_canvas = 1;
 const offset = 5;
+let R_values_canvas = [];
 
 function validateR_canvas() {
     let yButtons = document.getElementsByName('rVal');
     let yCounter = 0;
     yButtons.forEach(checkBox => {
-        if (checkBox.checked)
+        if (checkBox.checked) {
+            R_values_canvas.push(checkBox.value);
             yCounter++;
+        }
     })
-    if (yCounter > 1) {
-        ALERT += "\n" + "Choose only 1 R option;";
-        return false;
-    }
     if (yCounter === 0) {
         ALERT += "\n" + "Choose any R option;";
         return false;
     }
-    R_canvas = (document.querySelector('input[name="rVal"]:checked').value !== undefined ? document.querySelector('input[name="rVal"]:checked').value : undefined);
+    // R_canvas = (document.querySelector('input[name="rVal"]:checked').value !== undefined ? document.querySelector('input[name="rVal"]:checked').value : undefined);
+    // R_values_canvas.push(document.querySelector('input[name="rVal"]:checked').value);
     return true;
 }
 
 canvas.addEventListener('click', function (event) {
     if (!validateR_canvas()) {
         alert(ALERT);
-        ALERT='';
+        ALERT = '';
     } else {
+        console.log(R_values_canvas);
+        for (let i = 0; i < R_values_canvas.length; i++) {
+            //console.log('r from canvas: ' + R_values_canvas[i]);
 
-        console.log('r from canvas: ' + R_canvas);
+            let pos = getMousePos(canvas, event);
 
-        let pos = getMousePos(canvas, event);
+            let xFromCanvas = (pos.x - (canvas.width / 2)) / (canvas.height / 3) * R_values_canvas[i];
+            //console.log('x from canvas ; pos.x: ' + xFromCanvas + ' ; ' + pos.x);
 
-        let xFromCanvas = (pos.x - (canvas.width / 2)) / (canvas.height / 3) * R_canvas;
-        console.log('x from canvas ; pos.x: ' + xFromCanvas + ' ; ' + pos.x);
+            if (xFromCanvas < -4) xFromCanvas = -4;
+            else if (xFromCanvas > 4) xFromCanvas = 4;
 
-        if (xFromCanvas < -4) xFromCanvas = -4;
-        else if (xFromCanvas > 4) xFromCanvas = 4;
+            let yFromCanvas = ((canvas.height / 2) - pos.y) / (canvas.height / 3) * R_values_canvas[i];
+            //console.log('y from canvas ; pos.y: ' + yFromCanvas + ' ; ' + pos.y);
 
-        let yFromCanvas = ((canvas.height / 2) - pos.y) / (canvas.height / 3) * R_canvas;
-        console.log('y from canvas ; pos.y: ' + yFromCanvas + ' ; ' + pos.y);
+            if (yFromCanvas <= -3) yFromCanvas = -3;
+            else if (yFromCanvas >= 3) yFromCanvas = 3;
 
-        if (yFromCanvas <= -3) yFromCanvas = -3;
-        else if (yFromCanvas >= 3) yFromCanvas = 3;
+            send_canvas(xFromCanvas, yFromCanvas, i);
+        }
+    }
+    R_values_canvas = [];
 
-        $.get("ControllerServlet", {
-            'x': xFromCanvas,
-            'y': yFromCanvas,
-            'r': R_canvas,
+})
+
+async function send_canvas(x, y, i){
+    return new Promise(function (resolve) {
+        $.get('ControllerServlet', {
+            'x': x,
+            'y': y,
+            'r': R_values_canvas[i],
         }).done(function (data) {
+            //console.log(data);
             let arr = JSON.parse(data);
             if (arr.res === "yes") {
                 drawPoint(arr.x, arr.y, arr.r, "#22be00");
@@ -63,12 +73,12 @@ canvas.addEventListener('click', function (event) {
             row += '<td>' + arr.current + '</td>';
             row += '</tr>';
             $('#tableWithResults tr:first').after(row);
+            resolve(console.log("ok canvas"));
         }).fail(function (err) {
             alert(err);
         });
-    }
-})
-
+    });
+}
 // width / 2 + x * scale
 function getMousePos(canvas, evt) {
     let rect = canvas.getBoundingClientRect();

@@ -9,11 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c25a40b-26ed-4b93-85d3-be349fa3a806" name="Changes" comment="fix: first point drawing fixed">
+    <list default="true" id="4c25a40b-26ed-4b93-85d3-be349fa3a806" name="Changes" comment="fix: helios parsing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/AreaCheckServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/AreaCheckServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/scripts/draw.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/draw.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/scripts/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-lab2-finale.iml" beforeDir="false" afterPath="$PROJECT_DIR$/web-lab2-finale.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
-  <component name="RunManager" selected="JBoss/WildFly Server.finale">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.54">
     <configuration default="true" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 25.0.0.Final1" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -138,6 +139,7 @@
       </method>
     </configuration>
     <configuration name="finale" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 25.0.0.Final1" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:11228/" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <file path="$PROJECT_DIR$/target/web-lab2-finale-1.0-SNAPSHOT.war">
@@ -206,7 +208,6 @@
       </method>
     </configuration>
     <configuration name="Tomcat 9.0.54" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.54" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/web_lab2_finale_1_0_SNAPSHOT_war/" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <file path="$PROJECT_DIR$/target/web-lab2-finale-1.0-SNAPSHOT.war">
@@ -317,7 +318,9 @@
       <option name="presentableId" value="Default" />
       <updated>1634585096041</updated>
       <workItem from="1634585098866" duration="5264000" />
-      <workItem from="1634668673185" duration="13816000" />
+      <workItem from="1634668673185" duration="14698000" />
+      <workItem from="1634753609222" duration="83000" />
+      <workItem from="1634763806141" duration="7509000" />
     </task>
     <task id="LOCAL-00001" summary="finale">
       <created>1634681276902</created>
@@ -333,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634682373657</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix: helios parsing">
+      <created>1634728947388</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1634728947388</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,10 +359,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="finale" />
     <MESSAGE value="fix: first point drawing fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: first point drawing fixed" />
+    <MESSAGE value="fix: helios parsing" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: helios parsing" />
   </component>
 </project>

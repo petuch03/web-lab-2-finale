@@ -60,7 +60,7 @@
         <div class="rLocator">
             <div id="area_r" class="box">
                 <p><label class="center">Choose your R value:</label></p>
-                <p><label><input class="rValue" name="rVal" type="checkbox" value="1" checked> 1 </label>
+                <p><label><input class="rValue" name="rVal" type="checkbox" value="1"> 1 </label>
                 <p><label><input class="rValue" name="rVal" type="checkbox" value="1.5"> 1.5 </label>
                 <p><label><input class="rValue" name="rVal" type="checkbox" value="2"> 2 </label>
                 <p><label><input class="rValue" name="rVal" type="checkbox" value='2.5'> 2.5 </label>
@@ -132,8 +132,8 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="scripts/script.js"></script>
-<script type="text/javascript" src="scripts/draw.js"></script>
-<script type="text/javascript" src="scripts/onstart.js"></script>
+<script type="text/javascript" src="scripts/script.js" defer></script>
+<script type="text/javascript" src="scripts/draw.js" defer></script>
+<script type="text/javascript" src="scripts/onstart.js" defer></script>
 <%--<script type="text/javascript" src="scripts/dbInit.js"></script>--%>
 </html>

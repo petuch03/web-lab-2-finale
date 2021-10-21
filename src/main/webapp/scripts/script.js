@@ -1,6 +1,6 @@
-let X, Y, R_form;
-R_form = 1;
+let X, Y;
 let ALERT = '';
+let R_values_form = [];
 
 function button(value) {
     X = value;
@@ -19,18 +19,17 @@ function validateR() {
     let yButtons = document.getElementsByName('rVal');
     let yCounter = 0;
     yButtons.forEach(checkBox => {
-        if (checkBox.checked)
+        if (checkBox.checked) {
+            R_values_form.push(checkBox.value);
             yCounter++;
+        }
     })
-    if (yCounter > 1) {
-        ALERT += "\n" + "Choose only 1 R option;";
-        return false;
-    }
     if (yCounter === 0) {
         ALERT += "\n" + "Choose any R option;";
         return false;
     }
-    R_form = document.querySelector('input[name="rVal"]:checked').value;
+    // R_form = document.querySelector('input[name="rVal"]:checked').value;
+    // R_values_form.push(document.querySelector('input[name="rVal"]:checked').value);
     return true;
 }
 
@@ -58,17 +57,26 @@ function validateForm() {
     return validateX() & validateY() & validateR();
 }
 
-function cal() {
+async function cal() {
     if (!validateForm()) {
         alert(ALERT);
         ALERT = '';
     } else {
+        for (let i = 0; i < R_values_form.length; i++) {
+            await send(i);
+        }
+    }
+    R_values_form = [];
+}
+
+async function send(i){
+    return new Promise(function (resolve) {
         $.get('ControllerServlet', {
             'x': X,
             'y': Y,
-            'r': R_form,
+            'r': R_values_form[i],
         }).done(function (data) {
-            console.log(data);
+            //console.log(data);
             let arr = JSON.parse(data);
             if (arr.res === "yes") {
                 drawPoint(arr.x, arr.y, arr.r, "#22be00");
@@ -84,10 +92,11 @@ function cal() {
             row += '<td>' + arr.current + '</td>';
             row += '</tr>';
             $('#tableWithResults tr:first').after(row);
+            resolve(console.log("ok"));
         }).fail(function (err) {
             alert(err);
         });
-    }
+    });
 }
 
 function clear_table() {
