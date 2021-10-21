@@ -34,14 +34,8 @@ canvas.addEventListener('click', function (event) {
             let xFromCanvas = (pos.x - (canvas.width / 2)) / (canvas.height / 3) * R_values_canvas[i];
             //console.log('x from canvas ; pos.x: ' + xFromCanvas + ' ; ' + pos.x);
 
-            if (xFromCanvas < -4) xFromCanvas = -4;
-            else if (xFromCanvas > 4) xFromCanvas = 4;
-
             let yFromCanvas = ((canvas.height / 2) - pos.y) / (canvas.height / 3) * R_values_canvas[i];
             //console.log('y from canvas ; pos.y: ' + yFromCanvas + ' ; ' + pos.y);
-
-            if (yFromCanvas <= -3) yFromCanvas = -3;
-            else if (yFromCanvas >= 3) yFromCanvas = 3;
 
             send_canvas(xFromCanvas, yFromCanvas, i);
         }
@@ -93,11 +87,11 @@ function drawPoint(xPosition, yPosition, radius, color) {
     let xABS = (canvas.width / 2) + (canvas.width / 3) * xPosition / radius;
     let yABS = (canvas.height / 2) - (canvas.height / 3) * yPosition / radius;
 
-    if (xABS < 0) xABS = 0;
-    else if (xABS > canvas.width) xABS = canvas.width;
-
-    if (yABS < 0) yABS = 0;
-    else if (yABS > canvas.height) yABS = canvas.height;
+    // if (xABS < 0) xABS = 0;
+    // else if (xABS > canvas.width) xABS = canvas.width;
+    //
+    // if (yABS < 0) yABS = 0;
+    // else if (yABS > canvas.height) yABS = canvas.height;
 
     const ctx = canvas.getContext('2d');
     ctx.beginPath();

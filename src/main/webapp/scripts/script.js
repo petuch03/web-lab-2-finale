@@ -92,7 +92,7 @@ async function send(i){
             row += '<td>' + arr.current + '</td>';
             row += '</tr>';
             $('#tableWithResults tr:first').after(row);
-            resolve(console.log("ok"));
+            // resolve(console.log("ok"));
         }).fail(function (err) {
             alert(err);
         });
